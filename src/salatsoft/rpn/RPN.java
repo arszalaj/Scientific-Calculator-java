@@ -19,7 +19,12 @@ public class RPN
   public double result;
   public double resultFunction;
   public String rpn;
-  
+
+  public static void main(String [] args)
+  {
+    this.evaluateRPN("2+2", false)
+  }
+
   public boolean evaluateFunction(String paramString1, String paramString2, boolean paramBoolean)
   {
     String str = paramString1.substring(0, paramString1.length() - 1);
@@ -37,7 +42,7 @@ public class RPN
     }
     for (;;)
     {
-//      return true;
+      return true;
       if (str.equals("cos"))
       {
         this.resultFunction = Math.cos(d);
