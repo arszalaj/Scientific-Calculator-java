@@ -6,8 +6,8 @@ package com.example.rpn;
 import java.lang.StringBuffer;
 import java.lang.Math;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+//import android.content.SharedPreferences;
+//import android.preference.PreferenceManager;
 
 /**
  *
