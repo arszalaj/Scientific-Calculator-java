@@ -22,7 +22,7 @@ public class RPN
 
   public static void main(String [] args)
   {
-    this.evaluateRPN("2+2", false)
+//    this.evaluateRPN("2+2", false);
   }
 
   public boolean evaluateFunction(String paramString1, String paramString2, boolean paramBoolean)
@@ -42,7 +42,7 @@ public class RPN
     }
     for (;;)
     {
-      return true;
+//      return true;
       if (str.equals("cos"))
       {
         this.resultFunction = Math.cos(d);
@@ -148,9 +148,9 @@ public class RPN
       }
       else
       {
-        if (!str.equals("acoth")) {
-          break label649;
-        }
+//        if (!str.equals("acoth")) {
+//          break label649;
+//        }
         if (d == 0.0D) {
           break;
         }
@@ -158,8 +158,8 @@ public class RPN
       }
     }
     return false;
-    label649:
-    return false;
+//    label649:
+//    return false;
   }
   
   public int evaluateRPN(String paramString, boolean paramBoolean)
@@ -252,25 +252,25 @@ public class RPN
   {
     this.buffer = new StringBuilder().toString();
     int j = this.pos;
-    label82:
-    int i;
-    label168:
+//    label82:
+    int i = 0;
+//    label168:
     StringBuilder localStringBuilder;
     if ((j >= paramString.length()) || ((paramString.charAt(j) != ' ') && (paramString.charAt(j) != '\t')))
     {
       if ((j >= paramString.length()) || (paramString.charAt(j) < '0') || (paramString.charAt(j) > '9')) {
-        break label559;
+//        break label559;
       }
       if ((j < paramString.length()) && (paramString.charAt(j) >= '0') && (paramString.charAt(j) <= '9')) {
-        break label410;
+//        break label410;
       }
       if ((j >= paramString.length()) || (paramString.charAt(j) != '.')) {
-        break label449;
+//        break label449;
       }
       this.buffer += paramString.charAt(j);
       i = j + 1;
       if ((i < paramString.length()) && (paramString.charAt(i) >= '0') && (paramString.charAt(i) <= '9') && (i < paramString.length())) {
-        break label479;
+//        break label479;
       }
       j = i;
       if (i < paramString.length())
@@ -280,22 +280,22 @@ public class RPN
         {
           localStringBuilder = new StringBuilder(String.valueOf(this.buffer));
           j = i + 1;
-          this.buffer = paramString.charAt(i);
+          this.buffer = String.valueOf(paramString.charAt(i));
           i = j;
           if (paramString.charAt(j) != '-') {
-            break label556;
+//            break label556;
           }
           localStringBuilder = new StringBuilder(String.valueOf(this.buffer));
           i = j + 1;
-          this.buffer = paramString.charAt(j);
+          this.buffer = String.valueOf(paramString.charAt(j));
         }
       }
     }
-    label410:
-    label449:
-    label479:
-    label515:
-    label556:
+//    label410:
+//    label449:
+//    label479:
+//    label515:
+//    label556:
     for (;;)
     {
       j = i;
@@ -308,7 +308,7 @@ public class RPN
           if (paramString.charAt(i) <= '9')
           {
             if (i < paramString.length()) {
-              break label515;
+//              break label515;
             }
             j = i;
           }
@@ -336,7 +336,7 @@ public class RPN
       break label168;
       localStringBuilder = new StringBuilder(String.valueOf(this.buffer));
       j = i + 1;
-      this.buffer = paramString.charAt(i);
+      this.buffer = String.valueOf(paramString.charAt(i));
       i = j;
     }
     label559:
@@ -396,7 +396,7 @@ public class RPN
     }
     do
     {
-      return i;
+//      return i;
       this.assoc = 0;
       if ((paramString.equals("×")) || (paramString.equals("÷"))) {
         return 3;
