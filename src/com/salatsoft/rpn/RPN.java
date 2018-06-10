@@ -141,19 +141,6 @@ public class RPN {
 		
 		return infix;
 	}
-	
-	public boolean lastIsAnOperator(String infix)
-    {
-		if(infix.length()==0)
-			return false;
-		else
-	    	if (infix.charAt(infix.length()-1)=='-' || infix.charAt(infix.length()-1)=='+' ||
-	    		infix.charAt(infix.length()-1)=='*' || infix.charAt(infix.length()-1)=='/' ||
-	    		infix.charAt(infix.length()-1)=='^' )
-	    		return true;
-	    	else
-	    		return false;
-    }
         
     public int getNextElement(String exp, boolean bRPN)
     {
