@@ -15,9 +15,24 @@ import java.lang.Math;
  */
 public class RPN {
 	
-	//SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(null);
-    //String units = prefs.getString("units", "");
-	
+    private int pos;
+    private String buffer;
+    private int assoc;
+    public String rpn;
+    public double result;
+    public double resultFunction;
+    
+    private final int ERROR=-1;
+    private final int NUMBER=0;
+    private final int FUNCTION=1;
+    private final int OPERATOR=2;
+    private final int LB=3;
+    private final int RB=4;
+    private final int EOS=5;
+    
+    private final int RIGHT_ASSOC=1;
+    private final int LEFT_ASSOC=0;
+    
 	public String optimalizedInfix(String infix)
 	{
 		//String newInfix;
@@ -170,6 +185,7 @@ public class RPN {
             {
                 buffer+=exp.charAt(i++);
             }
+            
             
             buffer+=' ';
             pos=i;
@@ -590,22 +606,4 @@ public class RPN {
     {
         return rpn;
     }
-    
-    private int pos;
-    private String buffer;
-    private int assoc;
-    public String rpn;
-    public double result;
-    public double resultFunction;
-    
-    private final int ERROR=-1;
-    private final int NUMBER=0;
-    private final int FUNCTION=1;
-    private final int OPERATOR=2;
-    private final int LB=3;
-    private final int RB=4;
-    private final int EOS=5;
-    
-    private final int RIGHT_ASSOC=1;
-    private final int LEFT_ASSOC=0;
 }
