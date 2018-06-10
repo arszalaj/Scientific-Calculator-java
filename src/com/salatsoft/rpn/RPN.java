@@ -170,18 +170,6 @@ public class RPN {
             {
                 buffer+=exp.charAt(i++);
             }
-            //buffer.substring(1,3);
-            
-            if(i<exp.length() && exp.charAt(i)=='E')
-            {
-                buffer+=exp.charAt(i++);
-                if(exp.charAt(i)=='-')
-                    buffer+=exp.charAt(i++);
-                while(i<exp.length() && exp.charAt(i)>='0' && exp.charAt(i)<='9' && i<exp.length())
-                {
-                    buffer+=exp.charAt(i++);
-                }
-            }
             
             buffer+=' ';
             pos=i;
