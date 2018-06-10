@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 
@@ -107,25 +114,72 @@ for(Przedmiot p : przedmioty)
 		}
 	}
 }
-System.out.println("Maturzysta: " + imie + " " +  nazwisko);
-System.out.print("Twoj wynik:");
-System.out.println(sumaPkt);
+String linia = '\n' + "Maturzysta: " + imie + " " +  nazwisko;
+String trescPliku = "";
+trescPliku += linia;
+System.out.println(linia);
+linia = '\n' + "Twoj wynik:";
+trescPliku += linia;
+System.out.print(linia);
+linia = '\n' + String.valueOf(sumaPkt);
+trescPliku += linia;
+System.out.print(linia);
 if(sumaPkt >= 200)
 {
-	System.out.println("Dostales sie na studia!");
+	linia = '\n' + "Dostales sie na studia!";
+	trescPliku += linia;
+	System.out.print(linia);
 }
 else
 {
-	System.out.println("Niestety nie dostales sie na studia.");
+	linia = '\n' + "Niestety nie dostales sie na studia.";
+	trescPliku += linia;
+	System.out.print(linia);
 }
 for(Przedmiot p : przedmioty)
 {
-	System.out.print("Nazwa: " + p.nazwa + " Wynik:" + p.wynik);
+	linia = '\n' + "Nazwa: " + p.nazwa + " Wynik:" + p.wynik;
+	trescPliku += linia;
+	System.out.print(linia);	
+	
 	if(p.rozszerzony)
-		System.out.println(" Rozszerzony");
+		linia = '\n' + " Rozszerzony";
 	else
-		System.out.println(" Podstawowy");
+		linia = '\n' + " Podstawowy";
+	
+	trescPliku += linia;
+	System.out.print(linia);	
 }
+zapiszDoPliku(trescPliku);
 
 }
+ 
+ private static void zapiszDoPliku(String tresc) {
+	  FileOutputStream fout = null;
+	  File file;
+	  try {
+			file = new File("c:/sgh/newfile.txt");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			fout = new FileOutputStream(file, true);
+	   
+	  }
+	  catch(IOException e) {
+	   System.out.println("B³¹d");
+	   System.exit(-1);
+	  }
+	  DataOutputStream out = new DataOutputStream(fout);
+//	  BufferedReader inbr = new BufferedReader(new InputStreamReader(System.in));
+	  
+	  try {
+		    out.writeBytes(tresc + "\n\n");
+
+			out.flush();
+			out.close();
+		  }
+		  catch(IOException e) {
+		   System.out.println("B³¹d");
+		  }
+ }
 }
