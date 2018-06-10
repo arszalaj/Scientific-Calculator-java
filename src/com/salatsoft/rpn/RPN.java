@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.rpn;
+package com.salatsoft.rpn;
 import java.lang.StringBuffer;
 import java.lang.Math;
 
@@ -34,8 +34,8 @@ public class RPN {
 				lb++;
 			if(infix.charAt(i)==')')
 				rb++;
-			if(infix.charAt(i)=='/')
-				infix=infix.substring(0,i)+"/"+infix.substring(i+1,infix.length());
+//			if(infix.charAt(i)=='/')
+//				infix=infix.substring(0,i)+"/"+infix.substring(i+1,infix.length());
 		}
 		
 		while(rb<lb)
@@ -46,14 +46,14 @@ public class RPN {
 		
 		boolean repeat;
                 
-                for(i=0;i<infix.length()-1;i++)
-                {
-                if((infix.charAt(i)>='0' && infix.charAt(i)<='9') && (infix.charAt(i+1)=='π' || infix.charAt(i+1)=='e') ||
-              ((infix.charAt(i+1)>='0' && infix.charAt(i+1)<='9') && (infix.charAt(i)=='π' || infix.charAt(i)=='e')) ||
-              ((infix.charAt(i+1)=='π' && infix.charAt(i)=='e') || (infix.charAt(i)=='π' && infix.charAt(i+1)=='e')) ||
-              ((infix.charAt(i)=='π' || infix.charAt(i)=='e') && (infix.charAt(i+1)>='a' && infix.charAt(i+1)<='z')))
-            		infix=infix.substring(0,i+1)+'*'+infix.substring(i+1,infix.length());
-                }
+//                for(i=0;i<infix.length()-1;i++)
+//                {
+//                if((infix.charAt(i)>='0' && infix.charAt(i)<='9') && (infix.charAt(i+1)=='π' || infix.charAt(i+1)=='e') ||
+//              ((infix.charAt(i+1)>='0' && infix.charAt(i+1)<='9') && (infix.charAt(i)=='π' || infix.charAt(i)=='e')) ||
+//              ((infix.charAt(i+1)=='π' && infix.charAt(i)=='e') || (infix.charAt(i)=='π' && infix.charAt(i+1)=='e')) ||
+//              ((infix.charAt(i)=='π' || infix.charAt(i)=='e') && (infix.charAt(i+1)>='a' && infix.charAt(i+1)<='z')))
+//            		infix=infix.substring(0,i+1)+'*'+infix.substring(i+1,infix.length());
+//                }
 		do
 		{
 		repeat=false;

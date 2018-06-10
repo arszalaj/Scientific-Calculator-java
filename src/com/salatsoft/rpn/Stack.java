@@ -1,4 +1,4 @@
-package com.example.rpn;
+package com.salatsoft.rpn;
 import java.util.ArrayList;
 
 public class Stack {
