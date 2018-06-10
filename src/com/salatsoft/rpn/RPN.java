@@ -34,8 +34,6 @@ public class RPN {
 				lb++;
 			if(infix.charAt(i)==')')
 				rb++;
-//			if(infix.charAt(i)=='/')
-//				infix=infix.substring(0,i)+"/"+infix.substring(i+1,infix.length());
 		}
 		
 		while(rb<lb)
@@ -46,14 +44,14 @@ public class RPN {
 		
 		boolean repeat;
                 
-//                for(i=0;i<infix.length()-1;i++)
-//                {
-//                if((infix.charAt(i)>='0' && infix.charAt(i)<='9') && (infix.charAt(i+1)=='π' || infix.charAt(i+1)=='e') ||
-//              ((infix.charAt(i+1)>='0' && infix.charAt(i+1)<='9') && (infix.charAt(i)=='π' || infix.charAt(i)=='e')) ||
-//              ((infix.charAt(i+1)=='π' && infix.charAt(i)=='e') || (infix.charAt(i)=='π' && infix.charAt(i+1)=='e')) ||
-//              ((infix.charAt(i)=='π' || infix.charAt(i)=='e') && (infix.charAt(i+1)>='a' && infix.charAt(i+1)<='z')))
-//            		infix=infix.substring(0,i+1)+'*'+infix.substring(i+1,infix.length());
-//                }
+                for(i=0;i<infix.length()-1;i++)
+                {
+                if((infix.charAt(i)>='0' && infix.charAt(i)<='9') && (infix.charAt(i+1)=='π' || infix.charAt(i+1)=='e') ||
+              ((infix.charAt(i+1)>='0' && infix.charAt(i+1)<='9') && (infix.charAt(i)=='π' || infix.charAt(i)=='e')) ||
+              ((infix.charAt(i+1)=='π' && infix.charAt(i)=='e') || (infix.charAt(i)=='π' && infix.charAt(i+1)=='e')) ||
+              ((infix.charAt(i)=='π' || infix.charAt(i)=='e') && (infix.charAt(i+1)>='a' && infix.charAt(i+1)<='z')))
+            		infix=infix.substring(0,i+1)+'*'+infix.substring(i+1,infix.length());
+                }
 		do
 		{
 		repeat=false;
@@ -137,18 +135,9 @@ public class RPN {
 		
 		for(i=0;i<infix.length()-1;i++)
 		{
-			if(infix.charAt(i)=='+' && infix.charAt(i+1)=='%')
-				infix=infix.substring(0,i)+'$'+infix.substring(i+2,infix.length());
-			
-			if(infix.charAt(i)=='-' && infix.charAt(i+1)=='%')
-				infix=infix.substring(0,i)+'#'+infix.substring(i+2,infix.length());
-			
 			if(infix.charAt(i)=='*' && infix.charAt(i+1)=='%')
 				infix=infix.substring(0,i)+infix.substring(i+1,infix.length());
 		}
-        
-		
-			
 		
 		return infix;
 	}
@@ -214,7 +203,7 @@ public class RPN {
         }
         
         if(exp.charAt(pos)=='+' || exp.charAt(pos)=='-' || exp.charAt(pos)=='*' || exp.charAt(pos)=='/'
-                || exp.charAt(pos)=='^' || exp.charAt(pos)=='%' || exp.charAt(pos)=='#' || exp.charAt(pos)=='$')
+                || exp.charAt(pos)=='^' || exp.charAt(pos)=='%')
         {
             buffer+=exp.charAt(pos);
             buffer+=' ';
@@ -317,7 +306,7 @@ public class RPN {
             return 3;
         if (op.equals("+") || op.equals("-"))
             return 2;
-        if (op.equals("%") || op.equals("^") || op.equals("#") || op.equals("$"))
+        if (op.equals("%") || op.equals("^"))
             return 4;
         
         return 0;
@@ -590,28 +579,6 @@ public class RPN {
                         buffer2=stack.pop();
                         b=Float.parseFloat(buffer2);
                         c=b*(a/100);
-                        buffer2=Float.toString((float)c);
-                        stack.push(buffer2);
-                    }
-                    
-                    if(buffer.charAt(0)=='$')
-                    {
-                        buffer2=stack.pop();
-                        a=Float.parseFloat(buffer2);
-                        buffer2=stack.pop();
-                        b=Float.parseFloat(buffer2);
-                        c=b*(a/100)+b;
-                        buffer2=Float.toString((float)c);
-                        stack.push(buffer2);
-                    }
-                    
-                    if(buffer.charAt(0)=='#')
-                    {
-                        buffer2=stack.pop();
-                        a=Float.parseFloat(buffer2);
-                        buffer2=stack.pop();
-                        b=Float.parseFloat(buffer2);
-                        c=-b*(a/100)+b;
                         buffer2=Float.toString((float)c);
                         stack.push(buffer2);
                     }
