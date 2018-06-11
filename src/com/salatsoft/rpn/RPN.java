@@ -6,8 +6,6 @@ package com.salatsoft.rpn;
 import java.lang.StringBuffer;
 import java.lang.Math;
 
-//import android.content.SharedPreferences;
-//import android.preference.PreferenceManager;
 
 /**
  *

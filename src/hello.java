@@ -8,7 +8,7 @@ public class hello {
 	public static void main(String [] args)
 	  {
 		while(true) {
-			System.out.println("Write your expression down, please.");
+			System.out.println("\nWrite your expression down, please.");
 			Scanner input = new Scanner(System.in);
 			String expression = input.next();
 			rpn.infixToRPN(expression);
